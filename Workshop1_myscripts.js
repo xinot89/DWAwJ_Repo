@@ -1,5 +1,5 @@
-//Tehtävä kolmosta:
-/*for (var i=55; i>0; i--) {
+//Task 3:
+for (var i=55; i>0; i--) {
     var x = i;
     var order = 'Beer';
     if (x > 50) {
@@ -14,13 +14,10 @@
     document.write("It seems you're bit underaged.");
     }
 
-
-
-*/
-//Tehtävä nelosta:
-//Includes mechanism to count given numbers to ensure proper output and their even distribution.
+//Task 4:
+//As extra, includes mechanism to count given numbers to ensure proper output and their even distribution.
 //i started using "let" -type variables as it was said on site https://www.w3schools.com/js/js_variables.asp that "var" types should only be used for legacy browsers.
-/*var arr = [];
+var arr = [];
 let minusones = 0;
 let zeros = 0;
 let twos = 0;
@@ -57,20 +54,18 @@ document.write("<br>33: " + thirtythrees);
 document.write("<br>44: " + fortyfours);
 document.write("<br>100: " + onehundreds);
 document.write("<br>101: " + onehundredones);
-*/
 
-//Tehtävä vitosta:
-/*
+//Task 5:
 function areYouOldEnough(age) {
     if (age < 18){
     return "You are not old enough";
     }else
     return "You are old enough";
     }
-*/
 
-//Tehtävä kutosta:
-
+//Task 6:
+/*Variables print their values into console as instructed and function printinfo 
+gives variable's contenst when variable is defined: "printInfo(person)"*/
 var person = {
     firstName:"John",
     lastName:"Doe",
@@ -83,7 +78,8 @@ function printInfo(who) {
     console.log(who)
 }
 
-//Tehtävä 6 array:
+//Task 6 array:
+//Gives each entry's firstname + lastname when printInfo() is called.
 let persons = [{
     firstName:"John",
     lastName:"Doe",
@@ -117,7 +113,7 @@ let persons = [{
     eyeColor:"brown"
     },]
 function printInfo() {
-    for (var i=0; i<persons.lenght; i++) {
-console.log(persons[i].firstName)
+    for (var i=0; i<persons.length; i++) {
+console.log(persons[i].firstName,persons[i].lastName)
     }
 }
