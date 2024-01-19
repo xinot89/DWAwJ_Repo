@@ -1,23 +1,29 @@
 //Task 3:
-for (var i=55; i>0; i--) {
-    var x = i;
-    var order = 'Beer';
-    if (x > 50) {
-    document.write("<h1>He's over 50!</h1>" );
-    } else if (x <= 50 && x > 30){
+var x = 36;
+var order = 'Beer';
+if (x > 50) {
+    document.write("<h1>He's over 50!</h1>");
+    console.log("He's over 50!");
+} else if (x <= 50 && x > 30){
     document.write("Middle aged man, who ordered some "+order);
-    } else if (x <= 30 && x > 19){
+    console.log("Middle aged man, who ordered some "+order);
+} else if (x <= 30 && x > 19){
     document.write("Young adult, who ordered some "+order);
-    } else if (x == 18){
+    console.log("Young adult, who ordered some "+order);
+} else if (x == 18){
     document.write("Guy who just turned 18 ordered some "+order);
-    } else
+    console.log("Guy who just turned 18 ordered some "+order);
+} else {
     document.write("It seems you're bit underaged.");
-    }
+    console.log("It seems you're bit underaged.");
+}
+
 
 //Task 4:
 //As extra, includes mechanism to count given numbers to ensure proper output and their even distribution.
 //i started using "let" -type variables as it was said on site https://www.w3schools.com/js/js_variables.asp that "var" types should only be used for legacy browsers.
-var arr = [];
+//Tested with up to 300000 iterations, numbers distribute evenly enough and there isn't any -1 or 101 -values.
+let arr = [];
 let minusones = 0;
 let zeros = 0;
 let twos = 0;
@@ -25,7 +31,7 @@ let thirtythrees = 0;
 let fortyfours = 0;
 let onehundreds = 0;
 let onehundredones = 0;
-for (var i=0; i<15; i++) {
+for (let i=0; i<15; i++) {
 //arr.push( Math.random()*100 ).toFixed(0);
 arr.push(Math.floor(Math.random() * 101));
 document.write("<p style=\"color:red;\">Here's one random number between 0-100 without decimals: " + (arr[i]) + "</p>");
@@ -66,7 +72,7 @@ function areYouOldEnough(age) {
 //Task 6:
 /*Variables print their values into console as instructed and function printinfo 
 gives variable's contenst when variable is defined: "printInfo(person)"*/
-var person = {
+let person = {
     firstName:"John",
     lastName:"Doe",
     address:"Back alley 15",

@@ -6,9 +6,126 @@
     <title>Workshop1</title>
 </head>
 <body>
-    <script>
-    </script>
-    Täällä mitää oo.
-    
+    //Task 3:<br>
+    for (var i=55; i>0; i--) {<br>
+        var x = i;<br>
+        var order = 'Beer';<br>
+        if (x > 50) {<br>
+        document.write("<h1>He's over 50!</h1>" );<br>
+        } else if (x <= 50 && x > 30){<br>
+        document.write("Middle aged man, who ordered some "+order);<br>
+        } else if (x <= 30 && x > 19){<br>
+        document.write("Young adult, who ordered some "+order);<br>
+        } else if (x == 18){<br>
+        document.write("Guy who just turned 18 ordered some "+order);<br>
+        } else<br>
+        document.write("It seems you're bit underaged.");<br>
+        }<br>
+        <br>
+    //Task 4:<br>
+    //As extra, includes mechanism to count given numbers to ensure proper output and their even distribution.<br>
+    //i started using "let" -type variables as it was said on site https://www.w3schools.com/js/js_variables.asp that "var" types should only be used for legacy browsers.<br>
+    //Tested with up to 300000 iterations, numbers distribute evenly enough and there isn't any -1 or 101 -values.<br>
+    let arr = [];<br>
+    let minusones = 0;<br>
+    let zeros = 0;<br>
+    let twos = 0;<br>
+    let thirtythrees = 0;<br>
+    let fortyfours = 0;<br>
+    let onehundreds = 0;<br>
+    let onehundredones = 0;<br>
+    for (let i=0; i<15; i++) {<br>
+    //arr.push( Math.random()*100 ).toFixed(0);<br>
+    arr.push(Math.floor(Math.random() * 101));<br>
+    document.write("<p style=\"color:red;\">Here's one random number between 0-100 without decimals: " + (arr[i]) + "</p>");<br>
+    if (arr[i] == -1) {<br>
+        minusones++;<br>
+    } else if (arr[i] == 0) {<br>
+        zeros++;<br>
+    } else if (arr[i] == 2){<br>
+        twos++;<br>
+    } else if (arr[i] == 33){<br>
+        thirtythrees++;<br>
+    } else if (arr[i] == 44){<br>
+        fortyfours++;<br>
+    } else if (arr[i] == 100){<br>
+        onehundreds++;<br>
+    } else if (arr[i] == 101){<br>
+        onehundredones++;<br>
+    }<br>
+    //console.log(arr[i]);<br>
+    }<br>
+    document.write("<br>Count of selected numbers:");<br>
+    document.write("<br>-1: " + minusones);<br>
+    document.write("<br>0: " + zeros);<br>
+    document.write("<br>2: " + twos);<br>
+    document.write("<br>33: " + thirtythrees);<br>
+    document.write("<br>44: " + fortyfours);<br>
+    document.write("<br>100: " + onehundreds);<br>
+    document.write("<br>101: " + onehundredones);<br>
+    <br>
+    //Task 5:<br>
+    function areYouOldEnough(age) {<br>
+        if (age < 18){<br>
+        return "You are not old enough";<br>
+        }else<br>
+        return "You are old enough";<br>
+        }<br>
+        <br>
+    //Task 6:<br>
+    /*Variables print their values into console as instructed and function printinfo <br>
+    gives variable's contenst when variable is defined: "printInfo(person)"*/<br>
+    let person = {<br>
+        firstName:"John",<br>
+        lastName:"Doe",<br>
+        address:"Back alley 15",<br>
+        telephone:"756838956",<br>
+        age:50,<br>
+        eyeColor:"blue"<br>
+        };<br>
+    function printInfo(who) {<br>
+        console.log(who)<br>
+    }<br>
+    <br>
+    //Task 6 array:<br>
+    //Gives each entry's firstname + lastname when printInfo() is called.<br>
+    let persons = [{<br>
+        firstName:"John",<br>
+        lastName:"Doe",<br>
+        address:"Back alley 15",<br>
+        telephone:"756838956",<br>
+        age:50,<br>
+        eyeColor:"blue"<br>
+    },<br>
+    {<br>
+        firstName:"bob",<br>
+        lastName:"The builder",<br>
+        address:"front alley 15",<br>
+        telephone:"986666",<br>
+        age:32,<br>
+        eyeColor:"blue",<br>
+    },<br>
+    {<br>
+        firstName:"John",<br>
+        lastName:"Lennon",<br>
+        address:"Side alley 85",<br>
+        telephone:"125156",<br>
+        age:67,<br>
+        eyeColor:"green"<br>
+    },<br>
+    {<br>
+        firstName:"Stuart",<br>
+        lastName:"Mulligan",<br>
+        address:"Nearby street 35",<br>
+        telephone:"18556465",<br>
+        age:41,<br>
+        eyeColor:"brown"<br>
+        },]<br>
+    function printInfo() {<br>
+        for (var i=0; i<persons.length; i++) {<br>
+    console.log(persons[i].firstName,persons[i].lastName)<br>
+        }<br>
+    }<br>
+    <br>
 </body>
 </html>
