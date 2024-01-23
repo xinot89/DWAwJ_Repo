@@ -41,6 +41,8 @@
 		<h2>Exercise 4</h2>
 		<p>Create a simple web page, where JavaScript confirm-dialog will pop out asking if the user is a student or not. If the user clicks OK write "Welcome student" to the 
 		page. If the user clicks cancel, write on the page: "Sorry, this page is for students only".</p>
+		<button onclick = "areYouStudent()" > Ask about student status</button><br>
+		<div id="ws2exc4div"></div><div id="ws2exc4denyOverlay">Sorry, this page is for students only</div>
 		
 		<h2>Exercise 5</h2>
 		Use document.write to output an image tag with a real image to the page. When you're done, try writing a JavaScript function to display a random image from the following list of images. HINT: You can access individual images using the table index.  Images[0] for example contains the url: "<a href="http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg">http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg</a>".
@@ -74,6 +76,16 @@
 				} else {
 					window.location.href = 'https://example.com/';
 				}
+			}
+			function areYouStudent() {
+				let text = "Are you student?";
+				if (confirm(text) == true) {
+					document.getElementById('ws2exc4div').innerHTML = "Welcome student";
+				} else {
+					document.getElementById('ws2exc4denyOverlay').style.display = 'block';
+					text = "This ";
+				}
+				document.getElementById("demo").innerHTML = text;
 			}
 		</script>
 	</body>
