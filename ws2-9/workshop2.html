@@ -36,6 +36,7 @@
 		<h2>Exercise 3</h2>
 		<p>Create a JavaScript if-statement, which checks if the user is using Mozilla browser. If it is, the browser should load http://www.mozilla.org" page. If not, the browser 
 		should load some other website. Create simple pages to test the code.</p>
+		<button onclick = "isItMozilla()" > Let's try that</button>
 		
 		<h2>Exercise 4</h2>
 		<p>Create a simple web page, where JavaScript confirm-dialog will pop out asking if the user is a student or not. If the user clicks OK write "Welcome student" to the 
@@ -66,6 +67,13 @@
 			}
 			function ditchRepeatingText() {
 				document.getElementById('ws2exc2div').innerHTML = "";
+			}
+			function isItMozilla() {
+				if (navigator.userAgent.includes("Mozilla" + "Firefox")) {
+					window.location.href = 'https://mozilla.org/';
+				} else {
+					window.location.href = 'https://example.com/';
+				}
 			}
 		</script>
 	</body>
