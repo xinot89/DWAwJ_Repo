@@ -44,6 +44,19 @@ div.border {
 .clear {
     clear: both;
 }
+/*Omat määritykset workshop kakkosta varten*/
+.ws2firsttable {
+    border-collapse: collapse;
+}
+#ws2firsttablecell {
+    border-style: solid;
+    width: 8em;
+}
+#ws2secondtablecell {
+    border-style: solid;
+    width: 20em;
+    }
+/*Omat määritykset päättyy*/
 .ws3 div, .ws4.div {
     width: 200px;
     height: 100px;
