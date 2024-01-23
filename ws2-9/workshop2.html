@@ -27,6 +27,11 @@
 		
 		<h2>Exercise 2</h2>
 		<p>Create a JavaScript function called repeatingText. It writes out a line of text to the page 50 times.</p>
+		Next div is filled with 50 lines of text when function "repeatingText()" is called:<br>
+		<button onclick = "repeatingText()" > Call function.</button>
+		<div id="ws2exc2div">
+			Here's div.
+		</div>
 		
 		<h2>Exercise 3</h2>
 		<p>Create a JavaScript if-statement, which checks if the user is using Mozilla browser. If it is, the browser should load http://www.mozilla.org" page. If not, the browser 
@@ -48,6 +53,17 @@
 		</pre>
 		<script>
             document.getElementById('ws2secondtablecell').innerHTML = "<i><strong>\"If I had nine hours to chop down a tree, I’d spend the first six sharpening my ax.\"</strong><br>– Abraham Lincoln</i>";
+			function repeatingText() {
+				let eka = 1;
+				for (let i=0; i<50; i++) {
+					if (eka == 1) {
+					document.getElementById('ws2exc2div').innerHTML = "Basic line of text, multiplied 50 times by javascript function \"repeatingText\"<br>";
+					eka = 0;
+					} else {
+						document.getElementById('ws2exc2div').innerHTML += "Basic line of text, multiplied 50 times by javascript function \"repeatingText\"<br>";
+					}
+				}
+			}
 		</script>
 	</body>
 </html>

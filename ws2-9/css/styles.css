@@ -56,6 +56,10 @@ div.border {
     border-style: solid;
     width: 20em;
     }
+#ws2exc2div {
+    border-style: dashed;
+    height: fit-content;
+}
 /*Omat määritykset päättyy*/
 .ws3 div, .ws4.div {
     width: 200px;
