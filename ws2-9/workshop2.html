@@ -28,7 +28,7 @@
 		<h2>Exercise 2</h2>
 		<p>Create a JavaScript function called repeatingText. It writes out a line of text to the page 50 times.</p>
 		Next div is filled with 50 lines of text when function "repeatingText()" is called:<br>
-		<button onclick = "repeatingText()" > Call function.</button>
+		<button onclick = "repeatingText()" > Call function.</button><button onclick = "ditchRepeatingText()" > Clear div.</button>
 		<div id="ws2exc2div">
 			Here's div.
 		</div>
@@ -63,6 +63,9 @@
 						document.getElementById('ws2exc2div').innerHTML += "Basic line of text, multiplied 50 times by javascript function \"repeatingText\"<br>";
 					}
 				}
+			}
+			function ditchRepeatingText() {
+				document.getElementById('ws2exc2div').innerHTML = "";
 			}
 		</script>
 	</body>

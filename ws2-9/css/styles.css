@@ -58,6 +58,7 @@ div.border {
     }
 #ws2exc2div {
     border-style: dashed;
+    min-height: 1em;
     height: fit-content;
 }
 /*Omat määritykset päättyy*/
