@@ -44,7 +44,7 @@ div.border {
 .clear {
     clear: both;
 }
-/*Omat määritykset workshop kakkosta varten*/
+/*Omat määritykset: Workshop2*/
 .ws2firsttable {
     border-collapse: collapse;
 }
@@ -78,7 +78,7 @@ div.border {
     z-index: 999;
     font-size: 300%;
   }
-/*Omat määritykset päättyy*/
+/*Omat määritykset Workshop 2:lle päättyy*/
 .ws3 div, .ws4.div {
     width: 200px;
     height: 100px;
