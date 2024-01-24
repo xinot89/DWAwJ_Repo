@@ -78,6 +78,9 @@ div.border {
     z-index: 999;
     font-size: 300%;
   }
+#ws2exc5randonimage {
+    height: 20em;
+}
 /*Omat määritykset Workshop 2:lle päättyy*/
 .ws3 div, .ws4.div {
     width: 200px;

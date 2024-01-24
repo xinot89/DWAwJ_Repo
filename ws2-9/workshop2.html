@@ -46,14 +46,15 @@
 		
 		<h2>Exercise 5</h2>
 		Use document.write to output an image tag with a real image to the page. When you're done, try writing a JavaScript function to display a random image from the following list of images. HINT: You can access individual images using the table index.  Images[0] for example contains the url: "<a href="http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg">http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg</a>".
-
-		<pre>
-			var images =[
-				"http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg", 
-				"http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg", 
-				"http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg"
-			];
-		</pre>
+			<table>
+				<tr>
+					<td><button onclick = "bringWs2Exc5FirstImage()" > Bring random image to right.</button></td>
+					<td id="ws2exc5firstimage"></td>
+				</tr>
+				<tr>
+					<td>I also made function <button onclick = "WriteDebugNumbers()" > WriteDebugNumbers()</button> to check what positions of image url array are being fetched.</td>
+				</tr>
+			</table>
 		<script>
             document.getElementById('ws2secondtablecell').innerHTML = "<i><strong>\"If I had nine hours to chop down a tree, I’d spend the first six sharpening my ax.\"</strong><br>– Abraham Lincoln</i>";
 			function repeatingText() {
@@ -85,6 +86,21 @@
 					document.getElementById('ws2exc4denyOverlay').style.display = 'block';
 				}
 				document.getElementById("demo").innerHTML = text;
+			}
+			//Moved image url array to here as it didn't work from <pre> -block:
+				var images =[
+				"http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg", 
+				"http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg", 
+				"http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg"
+			];
+			function bringWs2Exc5FirstImage() {
+				document.getElementById('ws2exc5firstimage').innerHTML = "<img src=\"" + images[(Math.floor(Math.random() *3))] +"\" alt=\"Random image\" id=\"ws2exc5randonimage\">";
+			}
+			//Function to check that given random numbers are what they should:
+			function WriteDebugNumbers() {
+				for (let i=0; i<500; i++) {
+					document.write ((Math.floor(Math.random() *3)));
+				}
 			}
 		</script>
 	</body>
