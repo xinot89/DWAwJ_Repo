@@ -12,7 +12,6 @@
                     document.getElementById('ws3TableExample').style.display = 'block';
                 }
             }
-
                 function geolocation() {
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(showPosition);
@@ -23,7 +22,7 @@
                 function showPosition(position) {
                 console.log("Latitude: " + position.coords.latitude);
                 console.log("Longitude: " + position.coords.longitude);
-                }
+            }
         </script>
     </head>
     <body class="ws3">
@@ -86,7 +85,7 @@
             <li>The last button should check Geolocation of the user, and output it to the console and to the page. Note: Some browsers might not allow you to do this. Try different browsers if you get errors.</li>
         </ol>
         <hr/>
-        <h2>Exercise 2</h2>
+        <h2 id="ws3Exc2Heading">Exercise 2</h2>
         <ul>
             <li>Add an&nbsp;onMouseOver event on the&nbsp;Heading "Exercise 2" of this page.&nbsp;It should&nbsp;fire when the users mouse is moved 
         over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
@@ -111,6 +110,28 @@
         <p>Add onMouseMove -event to the DIV-element above. When you move mouse over the DIV (rectangle) the program should output the coordinates of your pointer. Try first outputting to the console using console.log.</p>
         <p> When the program is working, you can try outputting the text on the H2 element with an id "coords" the box</p> 
         <p>HINT: You need to use document.getElementById("coordinates").innerHTML to achieve this.</p>
+        <script>
+            //I put these here to make sure that document is loaded before script.
+            //Inspiration source: https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
+            const test = document.getElementById("ws3Exc2Heading");
+            test.addEventListener(
+            "mouseover",
+            (event) => {
+                // highlight the mouseover target
+                console.log("Stepped over my a mouse!")
+            },
+            false,
+            );
+            test.addEventListener(
+                "mouseout",
+                (event) => {
+                    // highlight the mouseover target
+                    //console.log("Bye bye mouse!")
+                    alert("Bye bye mouse!")
+                },
+                false,
+            );
+        </script>
     </body>
 </html>
 
