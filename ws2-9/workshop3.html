@@ -12,6 +12,18 @@
                     document.getElementById('ws3TableExample').style.display = 'block';
                 }
             }
+
+                function geolocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        console.log("Geolocation is not supported by this browser.");
+                    }
+                }
+                function showPosition(position) {
+                console.log("Latitude: " + position.coords.latitude);
+                console.log("Longitude: " + position.coords.longitude);
+                }
         </script>
     </head>
     <body class="ws3">
@@ -24,7 +36,7 @@
         <p>
           <button onclick = "alert('You clicked me! ' + new Date().toLocaleDateString('fi-fi', { weekday:'long', year:'numeric', month:'numeric', day:'numeric', hour:'numeric', minute:'numeric'}) )">Click me</button>
           <button onclick = "showTable()">Show/hide table</button>
-          <button>Geolocation</button>
+          <button onclick = "geolocation()">Geolocation</button>
         </p>
 
         <ol>
@@ -34,6 +46,7 @@
         </ol>
         <!--Poistettu seuraavasta turhanoloinen class="display", disabloitu myös CSS:stä.-->
         <table id="ws3TableExample">
+            <caption>Forgot document.write on this as i was busy on show/hide -functionality. <br> It's still used on ws2. </caption>
             <thead>
                 <tr>
                     <th>Name</th>
