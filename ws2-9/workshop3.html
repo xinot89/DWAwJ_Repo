@@ -5,7 +5,13 @@
         <title>Workshop 3</title>
         <link rel="stylesheet" href="css/styles.css">
         <script>
-            <!-- JavaScript goes here -->
+            function showTable() {
+                if (computedStyle = window.getComputedStyle(document.getElementById("ws3TableExample")).display === "block") {
+                    document.getElementById('ws3TableExample').style.display = 'none';
+                } else {
+                    document.getElementById('ws3TableExample').style.display = 'block';
+                }
+            }
         </script>
     </head>
     <body class="ws3">
@@ -16,8 +22,8 @@
         <h2>Exercise 1</h2>
         <p>Below you will see three buttons. Edit the source code and add an onClick-events to these buttons.</p>
         <p>
-          <button>Click me</button>
-          <button>Show table</button>
+          <button onclick = "alert('You clicked me! ' + new Date().toLocaleDateString('fi-fi', { weekday:'long', year:'numeric', month:'numeric', day:'numeric', hour:'numeric', minute:'numeric'}) )">Click me</button>
+          <button onclick = "showTable()">Show/hide table</button>
           <button>Geolocation</button>
         </p>
 
@@ -26,7 +32,8 @@
           <li> When you see the button working, add the current date after the text by using the Date() -function.</li>
           <li>The second button should call a function called showTable()". ShowTable function should output a simple HTML-table (below) to the page. Use document.write to print data. Feel free to modify the data on the table.</li>
         </ol>
-        <table id="example" class="display">
+        <!--Poistettu seuraavasta turhanoloinen class="display", disabloitu myös CSS:stä.-->
+        <table id="ws3TableExample">
             <thead>
                 <tr>
                     <th>Name</th>

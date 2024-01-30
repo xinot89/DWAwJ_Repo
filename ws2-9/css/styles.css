@@ -83,6 +83,9 @@ div.border {
 }
 /*Omat määritykset Workshop 2:lle päättyy*/
 /*Omat määritykset: Workshop3*/
+#ws3TableExample {
+    display: none;
+}
 /*Omat määritykset Workshop 3:lle päättyy*/
 .ws3 div, .ws4.div {
     width: 200px;
@@ -99,9 +102,11 @@ div.border {
     border-collapse: collapse;
     padding: 5px;
 }
+/* Tämä ilmeisesti tarpeeton leveyden venytin koko näytölle WS3:sta varten. Tehty tälle taulukolle id ws3TableExample
 table.display {
     width: 100%;
 }
+*/
 .ws4 img {
     position: relative;
     left:0px;

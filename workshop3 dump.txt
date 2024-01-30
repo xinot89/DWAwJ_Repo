@@ -1,0 +1,22 @@
+Show/hide item javascript:
+            /*Kevyesti trimmattu versio
+            function showTable() {
+                var computedStyle = window.getComputedStyle(document.getElementById("ws3TableExample"));
+                if (computedStyle.display === "block") {
+                    document.getElementById('ws3TableExample').style.display = 'none';
+                } else {
+                    document.getElementById('ws3TableExample').style.display = 'block';
+                }
+            }
+            */
+            /* Trimmaamaton versio
+            function showTable() {
+                var myElement = document.getElementById("ws3TableExample");
+                var computedStyle = window.getComputedStyle(myElement);
+                if (computedStyle.display === "block") {
+                    document.getElementById('ws3TableExample').style.display = 'none';
+                } else {
+                    document.getElementById('ws3TableExample').style.display = 'block';
+                }
+            }
+            */
