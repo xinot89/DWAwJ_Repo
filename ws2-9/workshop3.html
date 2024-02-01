@@ -116,7 +116,7 @@
         //I put these here to make sure that document is loaded before script.
             //Inspiration source: https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
             document.addEventListener("DOMContentLoaded", function () {
-                var ws3Exc2Armed = document.getElementById("ws3Exc2Enable");
+                const ws3Exc2Armed = document.getElementById("ws3Exc2Enable");
                 const test = document.getElementById("ws3Exc2Heading");
                 test.addEventListener(
                 "mouseover",
@@ -140,9 +140,9 @@
                     false,
                 );
                 ws3Exc2Armed.addEventListener("change", function () {
-                // Log checkbox value to console
-                console.log("Checkbox value:", ws3Exc2Armed.checked);
-            });
+                    // Log checkbox value to console
+                    console.log("Checkbox value:", ws3Exc2Armed.checked);
+                });
             });
         </script>
     </body>
