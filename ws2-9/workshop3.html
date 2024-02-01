@@ -28,6 +28,14 @@
                     alert("Text area is empty!")
                 }
             }
+            function coordPrint(event) {
+                var xCoords = event.clientX;
+                var yCoords = event.clientY;
+                var coords = "X coordinates: " + xCoords + "<br>Y coordinates: " + yCoords;
+                var headingCoords = "X: " + xCoords + ", Y: " + yCoords;
+                document.getElementById("Exc4coordinates").innerHTML = coords;
+                document.getElementById("Exc4coordinatesHeading").innerHTML = "Mouse position: " + headingCoords;
+            }
         </script>
     </head>
     <body class="ws3">
@@ -116,7 +124,8 @@
         </form>
         <hr/>
         <h2>Exercise 4</h2>
-        <div id="coordinates"></div>
+        <div onmousemove="coordPrint(event)" id="Exc4coordinates"></div>
+        <br><h3 id="Exc4coordinatesHeading">Mouse position: </h3>
         <p>Add onMouseMove -event to the DIV-element above. When you move mouse over the DIV (rectangle) the program should output the coordinates of your pointer. Try first outputting to the console using console.log.</p>
         <p> When the program is working, you can try outputting the text on the H2 element with an id "coords" the box</p> 
         <p>HINT: You need to use document.getElementById("coordinates").innerHTML to achieve this.</p>
@@ -129,6 +138,7 @@
                 const ws3Exc2Armed = document.getElementById("ws3Exc2Enable");
                 const ws3Exc3 = document.getElementById("Exc3textdata");
                 const ws3Exc3charcount = document.getElementById("Exc3charcount");
+                const Exc4coordinates = document.getElementById("Exc4coordinates");
                 test.addEventListener(
                 "mouseover",
                 (event) => {
@@ -159,6 +169,11 @@
                     alert("Please fill in the form with proper data.");
                 });
                 ws3Exc3.addEventListener("keyup", function () {
+                    // Log checkbox value to console
+                    ws3Exc3charcount.innerHTML = "Character count: " + ws3Exc3.value.length;
+                    ws3Exc3textlength = ws3Exc3.value.length;
+                });
+                Exc4coordinates.addEventListener("onMouseMove", function () {
                     // Log checkbox value to console
                     ws3Exc3charcount.innerHTML = "Character count: " + ws3Exc3.value.length;
                     ws3Exc3textlength = ws3Exc3.value.length;
