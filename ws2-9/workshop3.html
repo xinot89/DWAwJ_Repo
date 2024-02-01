@@ -12,16 +12,21 @@
                     document.getElementById('ws3TableExample').style.display = 'block';
                 }
             }
-                function geolocation() {
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(showPosition);
-                    } else {
-                        console.log("Geolocation is not supported by this browser.");
-                    }
+            function geolocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    console.log("Geolocation is not supported by this browser.");
                 }
-                function showPosition(position) {
+            }
+            function showPosition(position) {
                 console.log("Latitude: " + position.coords.latitude);
                 console.log("Longitude: " + position.coords.longitude);
+            }
+            function Exc3sendMe() {
+                if (ws3Exc3textlength == 0) {
+                    alert("Text area is empty!")
+                }
             }
         </script>
     </head>
@@ -102,9 +107,12 @@
           <li>When the form button is clicked, check if the textarea is empty. Notify the user with appropriate message. HINT: You can access the Textarea using the following command:   <i>document.getElementById("textdata").value</i>. We will study the forms deeper in Workshops 4 and 5.</li>
         </ul>
         <form>
-            <textarea id="textdata"></textarea><br>
-            <span id="charcount"></span>
-            <button>Send me</button>
+            <textarea id="Exc3textdata"></textarea><br>
+            <span id="Exc3charcount">Character count: </span>
+            <br>
+            I used keyup -events because keydowns seemed to have tendency to lag behind actual value.
+            <br>
+            <button onclick="Exc3sendMe()">Send me</button>
         </form>
         <hr/>
         <h2>Exercise 4</h2>
@@ -115,9 +123,12 @@
         <script>
         //I put these here to make sure that document is loaded before script.
             //Inspiration source: https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
+            var ws3Exc3textlength = 0;
             document.addEventListener("DOMContentLoaded", function () {
-                const ws3Exc2Armed = document.getElementById("ws3Exc2Enable");
                 const test = document.getElementById("ws3Exc2Heading");
+                const ws3Exc2Armed = document.getElementById("ws3Exc2Enable");
+                const ws3Exc3 = document.getElementById("Exc3textdata");
+                const ws3Exc3charcount = document.getElementById("Exc3charcount");
                 test.addEventListener(
                 "mouseover",
                 (event) => {
@@ -142,6 +153,15 @@
                 ws3Exc2Armed.addEventListener("change", function () {
                     // Log checkbox value to console
                     console.log("Checkbox value:", ws3Exc2Armed.checked);
+                });
+                ws3Exc3.addEventListener("click", function () {
+                    // Log checkbox value to console
+                    alert("Please fill in the form with proper data.");
+                });
+                ws3Exc3.addEventListener("keyup", function () {
+                    // Log checkbox value to console
+                    ws3Exc3charcount.innerHTML = "Character count: " + ws3Exc3.value.length;
+                    ws3Exc3textlength = ws3Exc3.value.length;
                 });
             });
         </script>
