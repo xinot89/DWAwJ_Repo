@@ -18,6 +18,39 @@
 					document.querySelector('h1').innerHTML = "Workshop 4: DOM Scripting";
 				}
 			}
+			function secondHeadingTinker() {
+				//"change at least the font size, style and color and the background color"
+				computedStyleColor = window.getComputedStyle(document.getElementById("ws4exc2heading")).color;
+				styleToChange = document.getElementById('ws4exc2heading').style;
+				//console.log(computedStyleColor);
+                if (computedStyleColor === "rgb(25, 102, 162)" || computedStyleColor === "#1966a2") {
+					//console.log("Väriehto triggeröityi");
+                    styleToChange.fontSize = '3em';
+					styleToChange.fontStyle = 'italic';
+					styleToChange.color = 'red';
+					styleToChange.backgroundColor = '#4acf29';
+					//document.getElementById('ws3TableExample').style.display = 'none';
+                } else {
+                    styleToChange.fontSize = '';
+					styleToChange.fontStyle = '';
+					styleToChange.color = '';
+					styleToChange.backgroundColor = '';
+                }
+			}
+			function appendAfter4thParagrapgh() {
+				var ptargets = document.getElementsByTagName("p");
+				var emtargets = document.getElementsByTagName("em");
+
+				if (ptargets[3].innerHTML.includes("Lorem ipsum")) {
+					//console.log("ptargetissa ipsumia");
+					ptargets[3].innerHTML = "Add onchange -events to following checkboxes.";
+					document.body.style.backgroundColor ="";
+                } else {
+                    //console.log("ptargetissa EI ipsumia");
+					ptargets[3].innerHTML += "<br><i>"+(emtargets[0].innerHTML)+(emtargets[1].innerHTML)+'<i><img src="img/ownlogo_for_ws4.jpg" alt="Really fine logo."></img>';
+					document.body.style.backgroundColor ="aquamarine";
+                }
+			}
 		</script>
 	</head>
 	<body class="ws4">
@@ -30,19 +63,19 @@
 		<p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons. Use Developer Console to find the </p>
 		<p>
 		  <button onclick="changeHeading()">Button 1</button>
-		  <button onclick="secondButton">Button 2</button>
-		  <button onclick="">Button 3</button>
+		  <button onclick="secondHeadingTinker()">Button 2</button>
+		  <button onclick="appendAfter4thParagrapgh()">Button 3</button>
 		</p>
 
 		<ul>
-			<li>The first button should run a JavaScript-function, which will find the reference to &quot;Workshop 4&quot; heading on this page and change the contents of it to &quot;Modified Heading!&quot;. <strong>Done: toggles alternative heading.</strong></li>
-			<li> The second button should run a function, which will modify the style of the &quot;Exercise 2&quot; heading on this page. JavaScript should change at least the font size, style and color and the background color</li>
-			<li>The third button should append the following text paragraph after the <strong>4th paragraph tag &lt;p&gt;</strong> on the page (without overwriting the current content). Change the background of the entire page as well. Note: The Lorem ipsum text should be in italics. It should also add a logo image of some sort after the text.<br>
+			<li>The first button should run a JavaScript-function, which will find the reference to &quot;Workshop 4&quot; heading on this page and change the contents of it to &quot;Modified Heading!&quot;. <br><strong>Done: toggles alternative heading.</strong></li>
+			<li> The second button should run a function, which will modify the style of the &quot;Exercise 2&quot; heading on this page. JavaScript should change at least the font size, style and color and the background color<br><strong>Done: toggles requested modifications on/off.</strong></li>
+			<li>The third button should append the following text paragraph after the <strong>4th paragraph tag &lt;p&gt;</strong> on the page (without overwriting the current content). Change the background of the entire page as well. Note: The Lorem ipsum text should be in italics. It should also add a logo image of some sort after the text.<br><strong>Done: toggles requested modifications on/off.</strong><br>
 			<br>
 			<strong id="lorem"><em>&quot;Lorem ipsum</em></strong><em> dolor sit amet, consectetuer   adipiscing elit. Sed posuere interdum sem. Quisque ligula eros   ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam   vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget   velit. &quot;</em></li>
 		</ul>
 		<hr/>
-		<h2>Exercise 2: DOM Traversing using ID's and classes</h2>
+		<h2 id="ws4exc2heading">Exercise 2: DOM Traversing using ID's and classes</h2>
 		<p class="surprise">Add onchange -events to following checkboxes.</p>
 		<p>
 			<label>
