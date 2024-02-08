@@ -51,7 +51,39 @@
 					document.body.style.backgroundColor ="aquamarine";
                 }
 			}
-		</script>
+			function Exc2hide() {
+				computedStyleVisibility = window.getComputedStyle(document.getElementById("me")).visibility;
+				styleToChange = document.getElementById('me').style;
+				targetCheckBox = document.getElementById("CheckboxGroup1_0").checked;
+				//console.log("Checkboxin tilanne: " + targetCheckBox);
+				if (targetCheckBox) {
+					styleToChange.display = 'none';
+				}
+			}
+			function Exc2show() {
+				computedStyleVisibility = window.getComputedStyle(document.getElementById("me")).visibility;
+				styleToChange = document.getElementById('me').style;
+				targetCheckBox = document.getElementById("CheckboxGroup1_1").checked;
+				if (targetCheckBox) {
+					styleToChange.display = 'block';
+				}
+			}
+			function SurpriseCheckBoxFunction() {
+				//computedStyleFontSize = window.getComputedStyle(document.getElementsByClassName("surprise")).fontSize
+				//For cleaner code, if made again i probably would put that if -condition inside for loop.
+				styleToChange = document.getElementsByClassName("surprise");
+				targetCheckBox = document.getElementById("CheckboxGroup1_2").checked;
+				if (targetCheckBox) {
+					for (var i = 0; i < styleToChange.length; i++) {
+    					styleToChange[i].style.fontSize = "20px";
+					}
+				} else {
+					for (var i = 0; i < styleToChange.length; i++) {
+    					styleToChange[i].style.fontSize = "";
+					}
+				}
+			}
+			</script>
 	</head>
 	<body class="ws4">
 		<h1>Workshop 4: DOM Scripting</h1>
@@ -79,24 +111,24 @@
 		<p class="surprise">Add onchange -events to following checkboxes.</p>
 		<p>
 			<label>
-				<input onchange="hide()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
+				<input onchange="Exc2hide()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
 				Hide me 
 			</label>
 			<br>
 			<label>
-				<input onchange="show()" type="checkbox" name="CheckboxGroup1" value="2" id="CheckboxGroup1_1">
+				<input onchange="Exc2show()" type="checkbox" name="CheckboxGroup1" value="2" id="CheckboxGroup1_1">
 				Show me
 			</label>
 			<br>
 			<label>
-				<input type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2"> 
+				<input onchange ="SurpriseCheckBoxFunction()" type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2"> 
 				<span id="surpise">Surprise</span>
 			</label>
 		</p>
 		<ul>
-		  <li>First checkbox: Find out which element has been described with the id &quot;me&quot;. Change the visibility (display value) of the element to none. What happens?</li>
-		  <li>Second checkbox should return the visibility of the element to a normal state (block).</li>
-		  <li>Third checkbox should find the elements with class &quot;surprise&quot; and change the font size to 20.</li>
+		  <li>First checkbox: Find out which element has been described with the id &quot;me&quot;. Change the visibility (display value) of the element to none. What happens?<br><strong>Done: Checkboxes change "me" element to given visibility when changing state from unchecked to checked.</strong></li>
+		  <li>Second checkbox should return the visibility of the element to a normal state (block). <br><strong>Done</strong></li>
+		  <li>Third checkbox should find the elements with class &quot;surprise&quot; and change the font size to 20.<br><strong>Done</strong></li>
 		</ul>
 		<div id="me" class="red-box"></div>
 		<p>&nbsp;</p>
