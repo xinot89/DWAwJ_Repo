@@ -86,19 +86,16 @@
 			function pulldownChangeAlert() {
 				//console.log ("Option changed, new selection: " + document.getElementById("mySelect").value);
 				/* Car image sources:
-				BMW: https://pixabay.com/get/ge218c29a738dad74756afd6ff0c29d871c7bf113c922caed8dba04b8531b6957ff9638564283329cee2e74aef538970933e1b716219aafe9469421892aa12490de9c448517a86af1e0c4ac032a5aed8c_640.jpg
 				BMW: https://pixabay.com/photos/automotive-bmw-car-close-up-hood-1838744/
-				Audi: https://pixabay.com/get/g4eab63ffcdeaec90f86fb760cabc533ce49fd263befddc9ee22e877b8d353d564f1957fe8067754d1361c372e29c509f1cf120582127d1e3542ee0d8cf09307710328ea15ea7ca042aa80ad8cb76e47c_640.jpg
 				Audi: https://pixabay.com/photos/car-audi-auto-automotive-vehicle-604019/
-				Mercedes: https://pixabay.com/get/gf3d974d9d46495399c06532ca9437dd8ff8729363f2c2aa87ea77d12d683cb5f0eaf8b0bb710cbddebb92761556a281acd3ee884c7a08a74a10614e85cf7aa5621341035573e959d63d4e0bc9f9ef007_640.jpg
 				Mercedes: https://pixabay.com/photos/auto-automobile-automotive-amg-2179220/
-				Volvo: https://pixabay.com/get/ged40a2d0ed2db14cde2ac742cfb4c3ffac7c616358cda3ea46c2dfdcba4c6a66b369616295e42cda158b9ef004bdf8cf6d35b8870eadcbae0e6299ff9b2cb044153bf012f0fc0de019062d273ff2976a_640.jpg
 				Volvo: https://pixabay.com/photos/volvo-v90-auto-car-automobile-2396040/
 				*/
-				const BMW ="https://pixabay.com/get/ge218c29a738dad74756afd6ff0c29d871c7bf113c922caed8dba04b8531b6957ff9638564283329cee2e74aef538970933e1b716219aafe9469421892aa12490de9c448517a86af1e0c4ac032a5aed8c_640.jpg";
-				const Audi="https://pixabay.com/get/g4eab63ffcdeaec90f86fb760cabc533ce49fd263befddc9ee22e877b8d353d564f1957fe8067754d1361c372e29c509f1cf120582127d1e3542ee0d8cf09307710328ea15ea7ca042aa80ad8cb76e47c_640.jpg";
-				const Mercedes="https://pixabay.com/get/gf3d974d9d46495399c06532ca9437dd8ff8729363f2c2aa87ea77d12d683cb5f0eaf8b0bb710cbddebb92761556a281acd3ee884c7a08a74a10614e85cf7aa5621341035573e959d63d4e0bc9f9ef007_640.jpg";
-				const Volvo="https://pixabay.com/get/ged40a2d0ed2db14cde2ac742cfb4c3ffac7c616358cda3ea46c2dfdcba4c6a66b369616295e42cda158b9ef004bdf8cf6d35b8870eadcbae0e6299ff9b2cb044153bf012f0fc0de019062d273ff2976a_640.jpg";
+				
+				const BMW ="img/BMW_automotive-1838744_640.jpg";
+				const Audi="img/Audi_car-604019_640.jpg";
+				const Mercedes="img/Mercedes_auto-2179220_640.jpg";
+				const Volvo="img/Volvo-2396040_640.jpg";
 
 				PullDownMenusValue = document.getElementById("mySelect").value;
 				PictureToChange = document.getElementById('carimage');
@@ -124,6 +121,12 @@
 			function CarimageUnderMouse() {
 				document.getElementById('carimage').style.border = "#dc0614";
 				document.getElementById('carimage').style.borderStyle = "solid";
+			}
+			function changePosition () {
+
+			}
+			function remove () {
+
 			}
 			</script>
 	</head>
