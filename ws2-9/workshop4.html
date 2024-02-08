@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/styles.css">
 		<script>
+			let exc4animate = 90;
 			function changeHeading() {
 				//console.log("Funktio käynnistyi")
 				//var heading = document.getElementsByTagName("h1");
@@ -18,6 +19,7 @@
 					document.querySelector('h1').innerHTML = "Workshop 4: DOM Scripting";
 				}
 			}
+			//Allaoleva sisältää komponentin "Jos elementin tyylinä....."
 			function secondHeadingTinker() {
 				//"change at least the font size, style and color and the background color"
 				computedStyleColor = window.getComputedStyle(document.getElementById("ws4exc2heading")).color;
@@ -37,6 +39,7 @@
 					styleToChange.backgroundColor = '';
                 }
 			}
+			//Allaoleva sisältää komponentin "Jos elementti sisältää....."
 			function appendAfter4thParagrapgh() {
 				var ptargets = document.getElementsByTagName("p");
 				var emtargets = document.getElementsByTagName("em");
@@ -123,11 +126,75 @@
 				document.getElementById('carimage').style.borderStyle = "solid";
 			}
 			function changePosition () {
-
+				carImage = document.getElementById('carimage');
+				if (carImage.style.marginLeft === "200px") {
+					carImage.style.marginLeft = "0px";
+					carImage.style.marginTop = "0px";
+					//carImage.style.boxSizing = "";
+				} else {
+					carImage.style.marginLeft = "200px";
+					carImage.style.marginTop = "200px";
+					//carImage.style.boxSizing = "border-box";
+				}
 			}
+			function doMove () {
+				carImage = document.getElementById('carimage');
+				carImageRect = carImage.getBoundingClientRect();
+				//For making sure that handled number stays as integer:
+				worknumber = 0;
+				spaceOnRight = window.innerWidth - carImageRect.right;
+				//spaceOnLeft = window.innerWidth - carImageRect.left;
+				spaceOnLeft = window.innerWidth-(carImageRect.right-carImageRect.left)-spaceOnRight;
+				
+				//console.log("carImageRect.right: "+ carImageRect.right);
+				//console.log("carImageRect.left: " + carImageRect.left);
+
+				if (exc4animate == 90) {
+					//console.log("Menossa oikealle")
+					//Tarkista tila oikealla
+					
+					//simppeli debuggausasetus:
+					//carImage.style.marginLeft = "30px";
+					//Asetetaan edellinen integer muuttujaan:
+					//console.log("worknumber 30px:stä: "+ worknumber);
+					//console.log("edellinen + 30: "+(worknumber+30));
+					//Seuraava laskee muuttujan + 30 yhteen ennen "px" -lisäystä.
+					//console.log("Edelliset ja määre perään: " + (worknumber+30) + "px");
+					//console.log("Pelkkiä inttejä: " + parseInt(window.getComputedStyle(carImage).marginLeft));
+					//console.log("Muutosyritys..")
+					//carImage.style.marginLeft = toString((window.getComputedStyle(carImage).marginLeft)+30)+"px";
+					
+					//console.log("Pelkkiä inttejä muutosyrityksen jälkeen: " + toString((window.getComputedStyle(carImage).marginLeft)+30)+"px");
+					if (spaceOnRight > 40) {
+						//Ota marginista numerot ja tallenna intiksi:
+						console.log("spaceOnRight: " + spaceOnRight);
+						console.log("spaceOnLeft: " + spaceOnLeft);
+						worknumber = parseInt(window.getComputedStyle(carImage).marginLeft);
+						carImage.style.marginLeft = (worknumber+30)+"px";
+						//console.log(exc4animate);
+					} else {
+						exc4animate = 270;
+					}
+				} else if (exc4animate == 270) {
+					//console.log("Menossa vasemmalle")
+					
+					console.log("spaceOnRight: " + spaceOnRight);
+					console.log("spaceOnLeft: " + spaceOnLeft);
+					if (spaceOnLeft > 40) {
+						//ota tyylistä margin ja lisää siihen 50px
+						worknumber = parseInt(window.getComputedStyle(carImage).marginLeft);
+						carImage.style.marginLeft = (worknumber-30)+"px";
+					} else {
+						exc4animate = 90;
+					}
+				}
+				
+			}
+
+			/*
 			function remove () {
-
 			}
+			*/
 			</script>
 	</head>
 	<body class="ws4">
@@ -142,6 +209,8 @@
 		  <button onclick="changeHeading()">Button 1</button>
 		  <button onclick="secondHeadingTinker()">Button 2</button>
 		  <button onclick="appendAfter4thParagrapgh()">Button 3</button>
+		  <!--Following for debugging doMove() -function.-->
+		  <button onclick="doMove()">doMove() Once </button>
 		</p>
 
 		<ul>
@@ -181,7 +250,7 @@
 		<h2>Exercise 3: Images and pulldowns</h2>
 			<ul>
 				<li>Write a JavaScript function, which will fire when the pulldown menu item is changed. Show the users choice using alert -box. <strong>Done</strong></li>
-				<li>When the mouse is moved on top of the image, a colored border should appear surrounding it. On mouse out, border should disappear<strong>Done</strong></li>
+				<li>When the mouse is moved on top of the image, a colored border should appear surrounding it. On mouse out, border should disappear <strong>Done</strong></li>
 				<li>When you have accomplished the above, change the image (id=&quot;carimage&quot;) below based on the users choice on the pulldown menu below. Find appropriate images from the web.<strong>Done</strong>
 			</ul>
 		  <p>Select a new car from the list.</p>
@@ -202,8 +271,8 @@
 		  <li>
 			<p class="surprise">You can do neat things by editing CSS-rules via  JavaScript. See the examples in lecture slides. Then try these:</p>
 			<ol>
-			  <li><button onclick="changePosition()">Move!</button>Select the div with an id &quot;carimage&quot; and move it 200px left and 500px down</li>
-			  <li><button onclick="setInterval(function(){doMove();},1000); ">Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item.</li>
+			  <li><button onclick="changePosition()">Move!</button>Select the div with an id &quot;carimage&quot; and move it 200px <s>left</s> right (image was on left edge) and 500px down <strong>Done</strong></li>
+			  <!--Orkkis interwall 1000--><li><button onclick="setInterval(function(){doMove();},1000); ">Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item.</li>
 			  <li><button onclick="setInterval(function(){fadeOut();},250);">Fade out!</button> Wite  a function fadeOut() which will slowly decrease the opacity of the image from 1.0 to  0 making it fade out. The Interval required has already been added to the onclick -event of the list item</li>
 			  <li><button onclick="remove()">Disappear! </button>Finally, write JavaScript which will remove the image from the page</li>
 			</ol>
