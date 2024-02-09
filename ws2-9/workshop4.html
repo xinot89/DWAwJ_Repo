@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="css/styles.css">
 		<script>
 			let exc4animate = 90;
+			let exc4fading = 1;
 			function changeHeading() {
 				//console.log("Funktio käynnistyi")
 				//var heading = document.getElementsByTagName("h1");
@@ -190,6 +191,36 @@
 				}
 				
 			}
+			function fadeOut() {
+				carImage = document.getElementById('carimage');
+				//parseFloat is needed because otherwise javascript may interpret "0" as string when numbers rise again.
+				worknumber = parseFloat(window.getComputedStyle(carImage).opacity);
+				//console.log("worknumber alussa: "+worknumber);
+				if (exc4fading == 1) {
+					if (worknumber > 0.0) {
+						//feidaukset tähän (worknumber - luku)
+						carImage.style.opacity = worknumber - 0.05;
+					} else {
+						//console.log("menossa ylös")
+						exc4fading = -1;
+					}
+				} else if (exc4fading == -1) {
+					//console.log("ylösmenopuolella...")
+					if (worknumber < 1) {
+						//console.log("Worknumber alle 1 laukesi")
+						carImage.style.opacity = worknumber + 0.05;
+					} else {
+						//console.log("menossa alas")
+						exc4fading = 1;
+					}
+				} else {
+					console.log("Function doesn't know which direction to go.")
+				}
+			}
+			function remove() {
+				carImage = document.getElementById('carimage');
+				carimage.style.display = "none";
+			}
 
 			/*
 			function remove () {
@@ -209,8 +240,6 @@
 		  <button onclick="changeHeading()">Button 1</button>
 		  <button onclick="secondHeadingTinker()">Button 2</button>
 		  <button onclick="appendAfter4thParagrapgh()">Button 3</button>
-		  <!--Following for debugging doMove() -function.-->
-		  <button onclick="doMove()">doMove() Once </button>
 		</p>
 
 		<ul>
@@ -272,9 +301,9 @@
 			<p class="surprise">You can do neat things by editing CSS-rules via  JavaScript. See the examples in lecture slides. Then try these:</p>
 			<ol>
 			  <li><button onclick="changePosition()">Move!</button>Select the div with an id &quot;carimage&quot; and move it 200px <s>left</s> right (image was on left edge) and 500px down <strong>Done</strong></li>
-			  <!--Orkkis interwall 1000--><li><button onclick="setInterval(function(){doMove();},1000); ">Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item.</li>
-			  <li><button onclick="setInterval(function(){fadeOut();},250);">Fade out!</button> Wite  a function fadeOut() which will slowly decrease the opacity of the image from 1.0 to  0 making it fade out. The Interval required has already been added to the onclick -event of the list item</li>
-			  <li><button onclick="remove()">Disappear! </button>Finally, write JavaScript which will remove the image from the page</li>
+			  <!--Orkkis interwall 1000--><li><button onclick="setInterval(function(){doMove();},1000); ">Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item. <strong>Done, goes both ways.</strong></li>
+			  <li><button onclick="setInterval(function(){fadeOut();},250);">Fade out!</button> Wite  a function fadeOut() which will slowly decrease the opacity of the image from 1.0 to  0 making it fade out. The Interval required has already been added to the onclick -event of the list item <strong>Done, goes both ways.</strong></li>
+			  <li><button onclick="remove()">Disappear! </button>Finally, write JavaScript which will remove the image from the page <strong>Done</strong></li>
 			</ol>
 		  </li>
 		</ul>
