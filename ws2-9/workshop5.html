@@ -15,21 +15,23 @@
 
         <hr/>
         <h2>Exercise 1: Contact Form</h2>
-        <p data-line="4">Below you see a simple contact form which has fields for email address   and comments.</p>
-        <p data-line="6">a&rpar; Write JavaScript code which   checks the input fields when the form submit-button is clicked. Display the   entered values with alert -dialogs. Use onsubmit-event on the form tag. Make sure that your code cancels the submission of the form if needed. Hint: See the PowerPoint -slides.</p>
-        <p data-line="8">b&rpar; Enhance the code and write   if-statements to check the following: the length of email address should be atleast 6 and   less than 15. It should also have a  @ - character. Check also that the comment field is not be empty and the content should be trimmed down to 50 characters. Utilize JavaScript <a href="http://www.w3schools.com/js/js_string_methods.asp" target="_blank">String-methods</a>.</p>
-        <p data-line="12">c&rpar; Should an error occur,   highlight the erroneous field and provide some feedback to the user.   Preferably by displaying some text message on the page, next to the   input field. See the lecture slides for demo.</p>
-        <form onsubmit="checkexc1()">
+        <p data-line="4">Below you see a simple contact form which has fields for email address and comments.</p>
+        <p data-line="6">a&rpar; Write JavaScript code which checks the input fields when the form submit-button is clicked. Display the entered values with alert -dialogs. Use onsubmit-event on the form tag. Make sure that your code cancels the submission of the form if needed. Hint: See the PowerPoint -slides. <br> <strong>Done: checks both input fields in in any case, gives textual errors after input fields and changes input field's background to light red. Red background color changes back to white when input fields are clicked again and previous textual error is cleared on resubmit, in case that another input box's input is still erroneous.</strong></p>
+        <p data-line="8">b&rpar; Enhance the code and write if-statements to check the following: the length of email address should be atleast 6 and less than 15. It should also have a  @ - character. Check also that the comment field is not be empty and the content should be trimmed down to 50 characters. Utilize JavaScript <a href="http://www.w3schools.com/js/js_string_methods.asp" target="_blank">String-methods</a>. <br><strong>Done: Obeys given parameters, splice used. Comment field's contents will be cut silently, without easy change for user to fix after hitting submit.</strong></p>
+        <p data-line="12">c&rpar; Should an error occur, highlight the erroneous field and provide some feedback to the user. Preferably by displaying some text message on the page, next to the   input field. See the lecture slides for demo. <br> <strong>Done as explained in part A.</strong></p>
+        <form onsubmit="checkexc1_s1()">
             <div class="no-border">
                 <label>Email address:<br>
-                    <input type="text" name="email">
+                    <input type="text" name="email" onclick="exc1_towhite('email')">
                 </label>
+                <div id="emailerroroutput" class="ws5form_errormsgs"></div>
             </div>
             <div class="no-border">
                 <label>
                     Comment:<br>
                 </label>
-                <textarea name="comment"></textarea>
+                <textarea name="comment" onclick="exc1_towhite('comment')"></textarea>
+                <div id="commenterroroutput" class="ws5form_errormsgs"></div>
             </div>
             <br>
             <!--SUBMIT BUTTON:-->

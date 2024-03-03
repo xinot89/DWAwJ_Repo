@@ -183,3 +183,9 @@ table.display {
     display: none;
 }
 /*Omat määritykset Workshop 3:lle päättyy*/
+/*Omat määritykset Workshop 5:lle*/
+.ws5form_errormsgs {
+    font-weight: bold;
+    color: red;
+}
+/*Omat määritykset Workshop 5:lle päättyy*/
