@@ -76,3 +76,65 @@ function exc1_towhite(which) {
         console.log("exc1_towhite didn't do anything.")
     }
 }
+function doform2() {
+    document.forms[1].cost.value="";
+    membership = parseInt(document.forms[1].type.value);
+    pricearray = [10,15,20,25];
+    years = parseInt(document.forms[1].years.value);
+    //console.log("Rawyears: " + rawyears);
+    if (isNaN(membership)) {
+        alert("Please select your membership.");
+    }
+    if (isNaN(years)) {
+        alert("Please select years.");
+    }
+    totalcost = parseFloat((years*pricearray[membership]));
+    //console.log("Float totalcost: " + totalcost);
+
+   if (years <=2) {
+    console.log("1-2v");
+    //console.log("Pricearray palauttaa tällä membershipillä:" + pricearray[membership]);
+    
+    document.forms[1].cost.value = totalcost;
+   } else if (2 < years && years < 5) {
+    console.log("3-5v");
+    //console.log("Set as value for total cost: " + totalcost*0.8);
+    document.forms[1].cost.value = (totalcost*0.8);
+   } else if (5 <= years ) {
+    console.log("5+");
+    //console.log("Set as value for total cost: " + totalcost*0.8);
+    document.forms[1].cost.value = ((totalcost*0.8)-5);
+
+   } else {
+    console.log("doform2 received unknown year amount:" + years);
+   }
+}
+function checkEligibility() {
+    document.forms[1].cost.value="";
+    //console.log("Check elibility launched");
+    years = parseInt(document.forms[1].years.value);
+    //console.log("CheckElibility years: "+ years);
+    if (years <=2) {
+        document.getElementById('exc2Years').innerHTML="";
+    } else if (2 < years && years < 5) {
+        document.getElementById('exc2Years').innerHTML="Eligible for 20% discount";
+    } else if (5 <= years) {
+        document.getElementById('exc2Years').innerHTML="<br>Eligible for 20% discount + 5$ Bonus discount and special greetings!";
+    } else {
+        console.log("Nothing matched in checkElibility.")
+    }
+}
+//Debugging function to help aiming text to right place:
+//Abandoned when figured out much simpler implementation technic shown on checkEligibility()
+/*function roiskiTekstia() {
+    years = parseInt(document.forms[1].years.value);
+    console.log("Years value: " + years);
+    var formElement = document.getElementById('exc2Years');
+    console.log("formElement asetettu: " + formElement);
+    var newText = document.createTextNode('Your Appended Text');
+    console.log("Muuttuja uudelle tekstille asetettu: " + newText);
+    var newSpan = document.createElement('span');
+    newSpan.appendChild(newText);
+    formElement.parentNode.insertBefore(newSpan, formElement.nextSibling);
+}
+*/
