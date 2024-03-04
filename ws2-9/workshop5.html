@@ -5,7 +5,7 @@
 		<title>Workshop 5</title>
         <link rel="stylesheet" href="css/styles.css">
         <!--Did put this shopping.js here as place seems to be more logical and there isn't
-        (at least yet) any script which needs to have bage loaded before script.-->
+        (at least yet) any script which needs to have page loaded before script.-->
         <script src="js/shopping.js"></script>
     </head>
     <body>
@@ -19,19 +19,19 @@
         <p data-line="6">a&rpar; Write JavaScript code which checks the input fields when the form submit-button is clicked. Display the entered values with alert -dialogs. Use onsubmit-event on the form tag. Make sure that your code cancels the submission of the form if needed. Hint: See the PowerPoint -slides. <br> <strong>Done: checks both input fields in in any case, gives textual errors after input fields and changes input field's background to light red. Red background color changes back to white when input fields are clicked again and previous textual error is cleared on resubmit, in case that another input box's input is still erroneous.</strong></p>
         <p data-line="8">b&rpar; Enhance the code and write if-statements to check the following: the length of email address should be atleast 6 and less than 15. It should also have a  @ - character. Check also that the comment field is not be empty and the content should be trimmed down to 50 characters. Utilize JavaScript <a href="http://www.w3schools.com/js/js_string_methods.asp" target="_blank">String-methods</a>. <br><strong>Done: Obeys given parameters, splice used. Comment field's contents will be cut silently, without easy change for user to fix after hitting submit.</strong></p>
         <p data-line="12">c&rpar; Should an error occur, highlight the erroneous field and provide some feedback to the user. Preferably by displaying some text message on the page, next to the   input field. See the lecture slides for demo. <br> <strong>Done as explained in part A.</strong></p>
-        <form onsubmit="checkexc1_s1()">
+        <form onsubmit="checkexc1_s1(0)">
             <div class="no-border">
                 <label>Email address:<br>
                     <input type="text" name="email" onclick="exc1_towhite('email')">
                 </label>
-                <div id="emailerroroutput" class="ws5form_errormsgs"></div>
+                <div id="emailerroroutput0" class="ws5form_errormsgs"></div>
             </div>
             <div class="no-border">
                 <label>
                     Comment:<br>
                 </label>
                 <textarea name="comment" onclick="exc1_towhite('comment')"></textarea>
-                <div id="commenterroroutput" class="ws5form_errormsgs"></div>
+                <div id="commenterroroutput0" class="ws5form_errormsgs"></div>
             </div>
             <br>
             <!--SUBMIT BUTTON:-->
@@ -75,37 +75,90 @@
         <p data-line="20">&nbsp;</p>
         <hr/>
         <h2>Exercise 3: Book Order</h2>
-        <p data-line="27">In many cases, developer has to maintain and develop code written by someone else. Look at the HTML code and JavaScript code below. Study how does it work and what is the logic behind it.</p>
+        <p data-line="27">In many cases, developer has to maintain and develop code written by someone else. Look at the HTML code and JavaScript code below. Study how does it work and what is the logic behind it. <strong> Didn't find any javascript from html and shopping.js was basically empty.</strong></p>
         <p data-line="29">Then add following features to the code:</p>
-        <p data-line="31">a&rpar; the values read from the text   boxes are stored as strings. Modify the code to store the quantity as an integer and the price, tax and discount as floats.</p>
-        <p data-line="33">b&rpar; modify the JS code to double the discount applied when the quantity ordered is greater than 100 items</p>
-        <p data-line="35">c&rpar; modify the HTML form to include a shipping field, and include this value in the total calculation in shopping.js.</p>
+        <p data-line="31">a&rpar; the values read from the text   boxes are stored as strings. Modify the code to store the quantity as an integer and the price, tax and discount as floats.<strong>Done: parseInt's and parseFloats in use.</strong></p>
+        <p data-line="33">b&rpar; modify the JS code to double the discount applied when the quantity ordered is greater than 100 items<strong>Done.</strong></p>
+        <p data-line="35">c&rpar; modify the HTML form to include a shipping field, and include this value in the total calculation in shopping.js.<strong>Done.</strong></p>
         <p>&nbsp;</p>
         <fieldset>
             <p>Calculate a bulk book order.</p>
-            <div>
-                <label for="quantity">Quantity</label>
-                <input type="number" name="quantity" id="quantity" value="1" min="1" required>
-            </div>
-            <div>
-                <label for="price">Price Per Unit</label>
-                <input type="text" name="price" id="price" value="1.00" required>
-            </div>
-            <div>
-                <label for="tax">VAT (%)</label>
-                <input type="text" name="tax" id="tax" value="0.0" required>
-            </div>
-            <div>
-                <label for="discount">Discount</label>
-                <input type="text" name="discount" id="discount" value="0.00" required>
-            </div>
-            <div>
-                <label for="total">Total</label>
-                <input type="text" name="total" id="total" value="0.00">
-            </div>
-            <div>
-                <input type="submit" value="Calculate" id="submit-calculate" onClick="calculate()">
-            </div>
+            <p>Shipping not included in discount.</p>
+            <table>
+                <tr>
+                    <div>
+                        <td>
+                            <label for="quantity">Quantity</label>
+                        </td>
+                        <td>
+                            <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>
+                            <label for="price">Price Per Unit</label>
+                        </td>
+                        <td>
+                            <input type="text" name="price" id="price" value="1.00" required>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>
+                            <label for="tax">VAT (%)</label>
+                        </td>
+                        <td>
+                            <input type="text" name="tax" id="tax" value="0.0" required>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>
+                            <label for="discount">Discount(%)</label>
+                        </td>
+                        <td>
+                            <input type="text" name="discount" id="discount" value="0.00" required>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>
+                            <label for="shipping">Shipping</label>
+                        </td>
+                        <td>
+                            <select name="shipping" id="shipping" size="4" required>
+                                <option value=0>Standard - $30.00</option>
+                                <option value=1>Express - $45.00</option>
+                                <option value=2>Flexible - $55.00</option>
+                                <option value=3>Ultrafast - $85.00</option>
+                            </select>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>
+                        <label for="total">Total</label>
+                        </td>
+                        <td>
+                        <input type="text" name="total" id="total" value="0.00">
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td></td><td>
+                            <input type="submit" value="Calculate" id="submit-calculate" onClick="calculate()">
+                        </td>
+                    </div>
+                </tr>
+            </table>
+          
         </fieldset>
 
         <hr/>
@@ -116,5 +169,23 @@
                 <p data-line="41">After choosing the box, the user is shown an   input field which asks detailed information regarding on the selected   contact method.</p>
           </li>
         </ul>
+        <form onsubmit="checkexc1_s1(2)">
+            <div class="no-border">
+                <label>Email address:<br>
+                    <input type="text" name="email" onclick="exc1_towhite('email2')">
+                </label>
+                <div id="emailerroroutput2" class="ws5form_errormsgs"></div>
+            </div>
+            <div class="no-border">
+                <label>
+                    Comment:<br>
+                </label>
+                <textarea name="comment" onclick="exc1_towhite('comment2')"></textarea>
+                <div id="commenterroroutput2" class="ws5form_errormsgs"></div>
+            </div>
+            <br>
+            <!--SUBMIT BUTTON:-->
+            <input type="submit" value="Send">
+        </form>
     </body>
 </html>
