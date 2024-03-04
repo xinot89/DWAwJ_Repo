@@ -16,6 +16,8 @@ function checkexc1_s1(tempvariable) {
             greenlight = checknumber("sms");
         } else if (document.getElementById("call_radio").checked) {
             greenlight = checknumber("call");
+        } else if (document.getElementById("email_radio").checked) {
+            greenlight = 1;
         } else {
             greenlight = 2;
             console.log("checkexc1, input 2, sms/call not checked or recognized.");
@@ -25,7 +27,8 @@ function checkexc1_s1(tempvariable) {
     checkexc1_email(greenlight);
 }
 function checkexc1_email(greenlight) {
-    console.log("checkemail which:"+which);
+    //console.log("checkemail which:"+which);
+    //console.log("checkemail greenlight: " + greenlight);
     //let's clear potential error first, in case of previous error message:
     document.getElementById("emailerroroutput"+which).innerHTML = "";
     if (emailvalue.length < 15 && emailvalue.length >5 && emailvalue.includes("@")) {
@@ -73,12 +76,16 @@ function checkexc1_comment(tempvrb) {
                 //Operations for succesful truncated comment with emailvalue verification also succeeded.
                 alert("Given email: " + emailvalue);
                 alert("Given comment: " + commentvalue);
+            } else {
+                event.preventDefault();
             }
         } else {
             if (greenlight == 1) {
                 ////Operations for succesful comment with emailvalue verification also succeeded.
                 alert("Given email: " + emailvalue);
                 alert("Given comment: " + commentvalue);
+            } else {
+                event.preventDefault();
             }
         }
     } else {
