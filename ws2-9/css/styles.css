@@ -189,4 +189,10 @@ table.display {
     font-weight: bold;
     color: red;
 }
+#smsinput {
+    display: none;
+}
+#callinput {
+    display: none;
+}
 /*Omat määritykset Workshop 5:lle päättyy*/

@@ -58,7 +58,6 @@
                         <option value=3>Platinum - $25.00</option>
                     </select>
                 </div>
-                <!--<button onclick = "roiskiTekstia()">Roiski tekstiä</button>-->
                 <div>
                     <label for="years">Years</label>
                     <input type="number" name="years" id="years" min="1" onChange="checkEligibility()" required> <span id="exc2Years" class="ws5form_errormsgs"></span>
@@ -167,6 +166,7 @@
             <li>In PowerPoint-slides you were   shown a demo of a form where some extra fields were hidden and they turned visible after certain events occurred.
                 <p data-line="41">Copy the the contact form   created in Exercise 1 and edit it. Add select boxes to the form where user   can choose a preferred way of contact. There should be atleast email and   phone and sms available. </p>
                 <p data-line="41">After choosing the box, the user is shown an   input field which asks detailed information regarding on the selected   contact method.</p>
+                <strong>Done: Implemented separate options for SMS and CALL, call/sms boxes have error checking which enforces character limit and that there's only digits in these boxes. This form uses same checking functions as exercise 1 form, but i have added such feature to it, that if it's requested to check this form, it goes thru number checking function first and if that number checking function fails, it disables "greenlight" for last comment checking function thus blocking submission of form.</strong>
           </li>
         </ul>
         <form onsubmit="checkexc1_s1(2)">
@@ -183,7 +183,32 @@
                 <textarea name="comment" onclick="exc1_towhite('comment2')"></textarea>
                 <div id="commenterroroutput2" class="ws5form_errormsgs"></div>
             </div>
-            <br>
+            <!--Alkuperäinen lomake loppuu tähän.-->
+            <legend>Select preferred contact method:</legend>
+            <div>
+              <input type="radio" id="sms_radio" name="contactmethod" value="sms" onchange="exc4showhide(this);return false;"/>
+              <label for="sms">SMS</label>
+            </div>
+            <div id="smsinput">
+                <label>Number for SMS messages: (5-10 numbers)<br>
+                    <input type="text" id="smsnumberinputfield" name="smsnumber" onclick="exc1_towhite('smsnumber')">
+                </label>
+                <div id="smserroroutput2" class="ws5form_errormsgs"></div>
+            </div>
+            <div>
+              <input type="radio" id="call_radio" name="contactmethod" value="call" onchange="exc4showhide(this);return false;"/>
+              <label for="call">Call</label>
+            </div>
+            <div id="callinput">
+                <label>Number for calls: (5-10 numbers)<br>
+                    <input type="text" id="callnumberinputfield" name="callnumber" onclick="exc1_towhite('callnumber')">
+                </label>
+                <div id="callerroroutput2" class="ws5form_errormsgs"></div>
+            </div>
+            <div>
+              <input type="radio" id="email_radio" name="contactmethod" value="email" checked onchange="exc4showhide(this);return false;"/>
+              <label for="email">Email only</label>
+            </div>
             <!--SUBMIT BUTTON:-->
             <input type="submit" value="Send">
         </form>

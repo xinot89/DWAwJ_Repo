@@ -1,4 +1,5 @@
 //checkexc1 -functions refactored, so that first one takes form number as input and same functions are used in excercises 1&4
+//Tested on Mozilla Firefox.
 
 function checkexc1_s1(tempvariable) {
     which = parseInt(tempvariable);
@@ -7,15 +8,29 @@ function checkexc1_s1(tempvariable) {
     //console.log("Emailvalue: "+emailvalue);
     commentvalue = document.forms[which].comment.value;
     comment = document.forms[which].comment;
+    //Added after email and comment verification to convey information to abort exercise 4 submit if incorrect numbers:
+    greenlight = 1;
+    if (which == 2) {
+        if (document.getElementById("sms_radio").checked) {
+            //console.log("SMS radio laukesi");
+            greenlight = checknumber("sms");
+        } else if (document.getElementById("call_radio").checked) {
+            greenlight = checknumber("call");
+        } else {
+            greenlight = 2;
+            console.log("checkexc1, input 2, sms/call not checked or recognized.");
+        }
+    }
     //Element type span in following create / "span" is not id.
-    checkexc1_email();
+    checkexc1_email(greenlight);
 }
-function checkexc1_email() {
+function checkexc1_email(greenlight) {
+    console.log("checkemail which:"+which);
     //let's clear potential error first, in case of previous error message:
     document.getElementById("emailerroroutput"+which).innerHTML = "";
     if (emailvalue.length < 15 && emailvalue.length >5 && emailvalue.includes("@")) {
         //console.log("emailvalue riitti");
-        checkexc1_comment(1);
+        checkexc1_comment(greenlight);
     } else if (emailvalue.length > 14) {
     console.log("Email too long");
     document.forms[which].email.style.background ="rgba(255, 0, 0, 0.3)";
@@ -73,17 +88,26 @@ function checkexc1_comment(tempvrb) {
     }
 }
 function exc1_towhite(which) {
-    //"email"&"comment":Exercise 1, "email2"&"comment2":exercise4
+    /*"email"&"comment":Exercise 1, "email2"&"comment2":exercise4
+    Won't probably scale well. In need of scaling i would seek for feature which adds form's numbers automatically to function calls. EDIT: Researched such feature, is on function htmlformindex.
+    */
     if (which=="email") {
         document.forms[0].email.style.background ="rgb(255, 255, 255)";
     } else if (which=="comment") {
         //console.log("kommentinvalkaisu laukesi");
         document.forms[0].comment.style.background ="rgb(255, 255, 255)";
     } else if (which=="email2") {
-        document.forms[1].email.style.background ="rgb(255, 255, 255)";
+        document.forms[2].email.style.background ="rgb(255, 255, 255)";
     } else if (which=="comment2") {
         //console.log("kommentinvalkaisu laukesi");
-        document.forms[1].comment.style.background ="rgb(255, 255, 255)";
+        document.forms[2].comment.style.background ="rgb(255, 255, 255)";
+    } else if (which=="smsnumber") {
+        document.forms[2].smsnumber.style.background ="rgb(255, 255, 255)";
+        document.getElementById("smserroroutput2").innerHTML = "";
+    } else if (which=="callnumber") {
+        //console.log("kommentinvalkaisu laukesi");
+        document.forms[2].callnumber.style.background ="rgb(255, 255, 255)";
+        document.getElementById("callerroroutput2").innerHTML = "";
     } else {
         console.log("exc1_towhite didn't do anything.")
     }
@@ -175,4 +199,80 @@ function calculate() {
 
     //Discount when quantity > 100
     //Add shipping
+}
+function htmlformid(input) {
+    //Returns form's id which has been used to call function. Needs also specific function call on HTML: "htmlformid(this); return false;"
+    console.log("Got following as input: " + input);
+    var form = input.closest('form');
+    console.log("Jalostettu. Got following as input: " + form.id);
+}
+function htmlformindex(input) {
+    //Not used in exercises. Returns form's index which has been used to call function. Needs also specific function call on HTML: "htmlformindex(this); return false;"
+    var form = input.closest('form');
+    // Check if a form is found
+      var formIndex = Array.from(document.forms).indexOf(form);
+      console.log("Form index: " + formIndex);
+}
+function exc4showhide(input){
+    radioform = input.closest('input');
+    //console.log("Jalostettu. Got following as input: " + radioform.value);
+    if (radioform.value == "sms") {
+        document.getElementById("smsinput").style.display="block";
+        document.getElementById("callinput").style.display="none";
+    } else if (radioform.value == "call") {
+        document.getElementById("callinput").style.display="block";
+        document.getElementById("smsinput").style.display="none";
+    } else if (radioform.value == "email") {
+        document.getElementById("smsinput").style.display="none";
+        document.getElementById("callinput").style.display="none";
+    } else {
+        alert("exc4nag's first if didn't trigger")
+    }
+}
+function checknumber(callsms) {
+    //Palauta 1 jos ok. 2 Jos ei.
+    if (callsms=="sms"){
+        number = document.getElementById("smsnumberinputfield").value
+        if (number.length < 11 && 4 < number.length) {
+            if (containsOnlyNumbers(number)) {
+                return 1;
+            } else {
+                //Valitus aiheesta "vain numeroita SMS boksiin";
+                document.getElementById("smserroroutput2").innerHTML = "Only numbers to SMS box.";
+                document.forms[which].smsnumber.style.background ="rgba(255, 0, 0, 0.3)";
+            }
+        } else {
+            console.log("Checknumber/sms length failed");
+            //Valitus aiheesta "väärän pituinen SMS numero"
+            document.getElementById("smserroroutput2").innerHTML = "SMS number wrong length.";
+            document.forms[which].smsnumber.style.background ="rgba(255, 0, 0, 0.3)";
+            return 2;
+        }
+    } else if (callsms =="call") {
+        number = document.getElementById("callnumberinputfield").value
+        if (number.length < 11 && 4 < number.length) {
+            if (containsOnlyNumbers(number)) {
+                return 1;
+            } else {
+                //Valitus aiheesta "vain numeroita call boksiin"
+                document.getElementById("callerroroutput2").innerHTML = "Only numbers to Call number box.";
+                document.forms[which].callnumber.style.background ="rgba(255, 0, 0, 0.3)";
+            }
+        } else {
+            console.log("Checknumber/call length failed");
+            //Valitus aiheesta "väärän pituinen soittonumero"
+            document.getElementById("callerroroutput2").innerHTML = "Call number wrong length.";
+            document.forms[which].callnumber.style.background ="rgba(255, 0, 0, 0.3)";
+            return 2;
+        }
+        
+    } else {
+        console.log("Checknumber's if statements didnt trigger.")
+        return 2;
+    }
+}
+function containsOnlyNumbers(inputString) {
+    //Helper function for checknumber
+    var regex = /^\d+$/;
+    return regex.test(inputString);
 }
