@@ -95,9 +95,6 @@ function checkexc1_comment(tempvrb) {
     }
 }
 function exc1_towhite(which) {
-    /*"email"&"comment":Exercise 1, "email2"&"comment2":exercise4
-    Won't probably scale well. In need of scaling i would seek for feature which adds form's numbers automatically to function calls. EDIT: Researched such feature, is on function htmlformindex.
-    */
     if (which=="email") {
         document.forms[0].email.style.background ="rgb(255, 255, 255)";
     } else if (which=="comment") {
@@ -132,25 +129,18 @@ function doform2() {
         alert("Please select years.");
     }
     totalcost = parseFloat((years*pricearray[membership]));
-    //console.log("Float totalcost: " + totalcost);
-
-   if (years <=2) {
+    if (years <=2) {
     console.log("1-2v");
-    //console.log("Pricearray palauttaa tällä membershipillä:" + pricearray[membership]);
-    
     document.forms[1].cost.value = totalcost;
-   } else if (2 < years && years < 5) {
+    } else if (2 < years && years < 5) {
     console.log("3-5v");
-    //console.log("Set as value for total cost: " + totalcost*0.8);
     document.forms[1].cost.value = (totalcost*0.8);
-   } else if (5 <= years ) {
+    } else if (5 <= years ) {
     console.log("5+");
-    //console.log("Set as value for total cost: " + totalcost*0.8);
     document.forms[1].cost.value = ((totalcost*0.8)-5);
-
-   } else {
+    } else {
     console.log("doform2 received unknown year amount:" + years);
-   }
+    }
 }
 function checkEligibility() {
     document.forms[1].cost.value="";
@@ -191,21 +181,10 @@ function calculate() {
     } else if (isNaN(shipping)) {
         alert("Please select shipping option");
     } else {
-        //console.log("qty: " + qty);
-        //console.log("price: " + price);
-        //console.log("tax%: " + tax);
-        //console.log("discount: "+ discount);
-        //console.log("Shipping option: " + shipping);
         sum = qty*price*((tax/100)+1)*(1-(discount/100))+shippingpricearray[shipping];
         sum = sum.toFixed(2);
         document.getElementById('total').value=sum;
     }
-
-
-
-
-    //Discount when quantity > 100
-    //Add shipping
 }
 function htmlformid(input) {
     //Returns form's id which has been used to call function. Needs also specific function call on HTML: "htmlformid(this); return false;"
