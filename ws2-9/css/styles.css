@@ -196,3 +196,9 @@ table.display {
     display: none;
 }
 /*Omat määritykset Workshop 5:lle päättyy*/
+/*Omat määritykset: ws6:*/
+.ws6form_errormsgs {
+    font-weight: bold;
+    color: red;
+}
+/*ws6 määritykset päättyy*/
