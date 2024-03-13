@@ -128,11 +128,11 @@
 					}
 					divcontents = 'Destination: '+ localStorage.getItem('destination')+'<br>Arrival:',localStorage.getItem('arrival')+'<br>Services:'+orderedservices;
 				document.getElementById("sessiondata").innerHTML = "";
-				document.getElementById("sessiondata").innerHTML = 'Destination: '+ localStorage.getItem('destination')+'<br>Arrival:'+localStorage.getItem('arrival')+'<br>Services:'+orderedservices;
+				document.getElementById("sessiondata").innerHTML = 'Destination: '+ localStorage.getItem('destination')+'<br>Arrival: '+localStorage.getItem('arrival')+'<br>Services:'+orderedservices;
 			}
 		</script>
 	</head>
-	<body class="ws6" onload="">
+	<body class="ws6" onload="getLocallystoreddata()">
 		<h1>Workshop 6: Using Localstorage</h1>
 		<hr />
 		<h2>Exercise 1: Saving the entered data</h2>
@@ -171,8 +171,10 @@
 			piece of code to this page, which will check if there is saved data available from the first 
 			assignment, and load them into a div with an id="sessionData". This should happen when the 
 			page is loaded, because we want the data to be loaded then as well. HINT: use onLoad -
-			event on the body tag.</p>
-			<input type="button" name="button" id="localstoragebutton" value="Load from localstorage" onclick="getLocallystoreddata()">
+			event on the body tag.<strong><br>Done: data loads automatically, when body is loaded. There's also button to load data in case of data modifications between page loads.</strong></p>
+			
+			<input type="button" name="button" id="localstoragebutton" value="Load data from localstorage" onclick="getLocallystoreddata()">
+			
 			<div id="sessiondata">Session data goes here!</div>
 		</div>
 		<hr/>
