@@ -96,6 +96,14 @@ table.display {
     height: auto;
     border: 1px solid black;
 }
+/*Omaa WS7 säätöä alla:*/
+.ws7 table {
+    border-collapse: collapse;
+    width: fit-content;
+}
+.ws7 th {
+    border: 1px solid black;
+}
 .ws8 table {
     border-collapse: collapse;
     width: 700px;

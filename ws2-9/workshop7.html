@@ -94,9 +94,22 @@
 		<p>
 			<input type="button" name="Fetch3" id="Fetch3" value="Button" onclick="loadAndParseXML()">
 		</p>
-		<div id="tabledata">
-			<table>
-				<tbody>
+		<!--Moved id "tabledata" from div to table as it's more focused point to edit.-->
+		<div>
+			<table class="ws7">
+				<thead>
+					<tr>
+						<th>Book ID</th>
+						<th>Author</th>
+						<th>Title</th>
+						<th>Genre</th>
+						<th>Price</th>
+						<th>Publish date</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody id="tabledata">
+					<!--
 					<tr>
 						<td><strong>Quote</strong></td>
 						<td><strong>Author</strong></td>
@@ -109,6 +122,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 					</tr>
+					-->
 				</tbody>
 			</table>
 		</div>
