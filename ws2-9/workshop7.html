@@ -4,6 +4,7 @@
 		<title>Workshop 7</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/styles.css">
+		<script src="workshop7scripts.js"></script>
 	</head>
 	<body class="ws7">
 		<h1>Workshop 7: Using AJAX and parsing XML</h1>
@@ -20,8 +21,9 @@
 		<p>Write a function called parseData(), which will output the quote and author tags from XML when button is clicked.
 		Hint: Use document.getElementsByTagName() function. See PowerPoint for reference.</p>
 
-		<input type="button" name="Fetch" id="Fetch" value="Button" onclick="parseData()">
-		<pre>
+		<input type="button" name="Fetch" id="Fetch" value="GetElementById" onclick="parseData('exc1xmloutput')">
+		<input type="button" name="Feetch" id="Feetch" value="GetElementByTag" onclick="parseDataa('exc1xmloutput')">
+		<pre> <!--pre = HTML preformatted text.-->
 			<!-- THIS IS HERE ONLY FOR DISPLAYing THE STRUCTURE OF THE XML DATA IN THE BROWSER -->
 			&lt;quotes&gt;
 				&lt;quote&gt;I&#39;m not concerned about all hell breaking loose, but that a PART of hell will break loose... it&#39;ll be much harder to detect.&lt;/quote&gt;
@@ -32,25 +34,33 @@
 				&lt;quote&gt;The biggest problem with every art is by the use of appearance to create a loftier reality. &lt;/quote&gt;
 				&lt;author&gt;Johann Wolfgang von Goethe&lt;/author&gt;
 			&lt;/quotes&gt;
-
+		</pre>
 			<!-- END -->
 
-			<!-- THIS IS THE START OF XML DATA -->
-		</pre>
-		<quotes>
-			<quote>I'm not concerned about all hell breaking loose, but that a PART of hell will break loose... it'll be much harder to detect.</quote>
-			<length>124</length>
-			<author>George Carlin</author>
-		</quotes>
-		<quotes>
-			<quote>The biggest problem with every art is by the use of appearance to create a loftier reality. </quote>
-			<author>Johann Wolfgang von Goethe</author>
-		</quotes>
-		<!-- THIS IS THE END  OF XML DATA -->
+			<!--Moved XML data from here into it's own file.-->
+			<!--Moved XML back here due my unwillingness to tinker with browser settings due CORS or require others to set them. -->
+			<div id="exc1xmlcontents" style="display: none;">
+				<!--<?xml version="1.0" encoding="UTF-8"?>-->
+				<!--Made this "quoteslist" because browser didn't like 2 separate "quotes" sections.-->
+				<quoteslist>
+					<quotes>
+						<quote>I'm not concerned about all hell breaking loose, but that a PART of hell will break loose... it'll be much harder to detect.</quote>
+						<length>124</length>
+						<author>George Carlin</author>
+					</quotes>
+					<quotes>
+						<quote>The biggest problem with every art is by the use of appearance to create a loftier reality. </quote>
+						<author>Johann Wolfgang von Goethe</author>
+					</quotes>
+				</quoteslist>
+			</div>
+			<div id="exc1xmloutput"></div>
 		<hr/>
 		<h2>Exercise 2: AJAX call to an XML file </h2>
+		<strong>At least in Firefox, browser needs to be configured to allow CORS content, if this html is loaded from local disk instead of http&lpar;s&rpar; server.</strong> <p>Following XML samples were also blocked from hotlinking &lpar;401 error&rpar; so i put my own xml to webserver and configured server to put "allow cross origin" header to responses for that XML.</p>
 		<p>Create an AJAX script, which will load the famous-quotes.xml file from the server: <a href="http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml" target="_blank">http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml</a> and inject the raw contents of the file to a div below (id="quotes"). Here's another alternative: <a href="http://quotes.rest/qod.xml" target="_blank">http://quotes.rest/qod.xml</a>. </p>
 		<p>NOTE: The raw XML data looks weird on the browser. You can use developer tools to study the contents by inspecting the DIV.</p>
+		<strong>Raw data now loads into div.</strong>
 
 		<p>The sample function shown in PowerPoint slides is pasted below.</p>
 		<pre>
@@ -76,7 +86,7 @@
 		<p>
 			<input type="button" name="Fetch2" id="Fetch2" value="Button" onclick="loadXMLFile()">
 		</p>
-		<div id="quotes"></div>
+		<div id="bookCatalog"></div>
 		<p>&nbsp;</p>
 		<hr/>
 		<h2>Exercise 3: Parsing the XML</h2>

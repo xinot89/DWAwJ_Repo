@@ -54,6 +54,7 @@ div.border {
     margin: 10px;
     padding: 10px;
 }
+/* Typos: those pointers should be like ".class subtag", no dot in between.*/
 .ws3 table, .ws3 tr, .ws3 td, .ws3 th, .ws5 table, ws5.tr, ws5.td{
     border: 1px solid gray;
     width: 50%;
