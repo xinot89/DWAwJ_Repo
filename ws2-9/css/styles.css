@@ -55,7 +55,7 @@ div.border {
     padding: 10px;
 }
 /* Typos: those pointers should be like ".class subtag", no dot in between.*/
-.ws3 table, .ws3 tr, .ws3 td, .ws3 th, .ws5 table, ws5.tr, ws5.td{
+.ws3 table, .ws3 tr, .ws3 td, .ws3 th, .ws5 table, .ws5 tr, .ws5 td{
     border: 1px solid gray;
     width: 50%;
     border-collapse: collapse;
@@ -94,25 +94,26 @@ div.border {
 /*Omaa WS7 säätöä alla:*/
 .ws7exctable table {
     border-collapse: collapse;
-    width: 100px;
 }
-.ws7exctable th, .ws7exctable td {
+.ws7exctable th, .ws7exctable td, .ws7exctable tr {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-.ws7exctable td:nth-child(1), .ws7exctable td:nth-child(4), .ws7exctable td:nth-child(5) {
+/*.ws7exctable td:nth-child(1), .ws7exctable td:nth-child(4), .ws7exctable td:nth-child(5) {
     width: 3em;
 }
+*/
 .ws7exctable td:nth-child(3) {
-    width: 6em;
+    width: 15em;
 }
+/*
 .ws7exctable td:nth-child(2), .ws7exctable td:nth-child(6) {
     width: 7em;
 }
 .ws7exctable td:nth-child(7) {
     width: 40%;
-}
+}*/
 .ws8 table {
     border-collapse: collapse;
     width: 700px;
