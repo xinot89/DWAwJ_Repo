@@ -8,11 +8,10 @@ const databox = document.getElementById("jsondata");
 const rawdatabox = document.getElementById("rawdata");
 //Url for exercise 2 functions:
 const dataurl = "http://www.omdbapi.com/?s=star+wars&apikey=cbbc6750";
-//Function to load automatically for debug purposes:
+//Function to load automatically on page load for developing purposes:
 document.addEventListener('DOMContentLoaded', () => {
-    loadandparse();
+    weather();
 });
-
 //Functions for exercise 1:
 function showFnameLnameOnly() {
     var workers = JSON.parse(text);
@@ -25,7 +24,6 @@ function showFnameLnameOnly() {
 function displayAllData() {
     databox.innerHTML = text;
 }
-
 //Functions for exercise 2:
 /*Made these functions "async" and made them wait for other function as otherwise it would only
 set [object Promise] as variable.*/
@@ -51,11 +49,8 @@ async function loadandparse() {
     const headingType = document.createElement('th')
     const headingPoster = document.createElement('th')
     //Seems like appended td's get affected of reusing same variable....
-    const universalTd = document.createElement('td');
-    /*First i planned separate cell creating variable for each,
-    but then thought that it wouldn't improve anything.
-*/
-    //Hardcoded titles:
+
+    //Hardcoded titles, invidual variables:
     headingTitle.textContent = "Title";
     tablerow.appendChild(headingTitle);
     headingYear.textContent = "Year";
@@ -68,7 +63,7 @@ async function loadandparse() {
     tablerow.appendChild(headingPoster);
     tablehead.appendChild(tablerow);
     datatable.appendChild(tablehead);
-
+    
     exc2data.Search.forEach(element => {
         //console.log("forEach round");
         /*These really needs to be "re-declared" here every time
@@ -92,8 +87,7 @@ async function loadandparse() {
         tablebody.appendChild(tablerow);
     });
     datatable.appendChild(tablebody); 
-    rawdatabox.appendChild(datatable);
-    
+    rawdatabox.appendChild(datatable); 
 }
 //Common data fetcher and error thrower function for 2 above functions:
 //async needed for awaits to be allowed.
@@ -111,4 +105,7 @@ async function fetch4exc2() {
         console.error("Error:", error);
         throw error; // Rethrow the error to be caught by the caller
     }
+}
+function weather() {
+    console.log("Weather function started");
 }
